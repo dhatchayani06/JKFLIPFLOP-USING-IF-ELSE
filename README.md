@@ -34,71 +34,34 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 **Procedure**
 
-step-1 Go to quartus software.
-
-step-2 Set new environment.
-
-step-3 Type the code to implement SR flipflop using verilog and validating their functionality using their functional tables.
-
-step-4 Run the program.
-
-step-5 Give inputs in the waveform table .
-
-step-6 Run the program.
-
+/* write all the steps invloved */
 
 **PROGRAM**
-```
-Program for flipflops and verify its truth table in quartus using Verilog programming.
-Developed by:Kavinraja D
-RegisterNumber:212222240047
-```
-```verilog
-module JKFLIPFLOP(q, qb,j,k,clock,reset);
-    input j,k,clock,reset;
-    output reg q, qb;
-	 
-always @ (posedge (clock))
 
-    begin 
-        if (!reset)
-            begin
-               q <= q;
-               qb <=qb;
-            end   
-        
-else
-   begin
-	   if(j==0 && k==0)
-		   begin
-			q<=q;
-			qb<=qb;
-			end
-		else if(j!=k)
-		   begin
-			q<=j;
-			qb<=k;
-			end
-		else if(j==1 && k==1)
-		    begin
-			 q<=~q;
-			 qb<=~qb;
-			 end
-	end
-end	
+/* Program for flipflops and verify its truth table in quartus using Verilog programming. 
+Developed by:DHATCHAYANI R
+RegisterNumber:212224050006
+*/
+~~~
+module exp7(J,K,clk,q,qbar);
+input J,K,clk;
+output reg q;
+output reg qbar;
+initial q=0;
+initial qbar=1;
+always @(posedge clk)
+begin
+q=((J&(~q))|((~K)&q));
+qbar=~q;
+end
 endmodule
-```
+~~~
 
 **RTL LOGIC FOR FLIPFLOPS**
-
-![image](https://github.com/23004513/JKFLIPFLOP-USING-IF-ELSE/assets/138973069/48cc0eb5-e90d-45bd-bb4e-000dcf05a796)
-
+![exp7](https://github.com/user-attachments/assets/8b0db16b-ca9a-4e46-bc7f-ff8202348af1)
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
-
-![image](https://github.com/23004513/JKFLIPFLOP-USING-IF-ELSE/assets/138973069/d4b06ea5-ea16-4979-8e0c-56e0bf0706b1)
-
+![exp7 (2)](https://github.com/user-attachments/assets/2bea601b-f9b3-485f-83f9-9be4c6a1c25b)
 
 **RESULTS**
-
-Thus,the code executed successfully.
+thus  the JK flipflop is verfied
